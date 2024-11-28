@@ -15,7 +15,7 @@ export default function Header() {
     <div>
       <header className="sticky top-0 w-full h-16 bg-primary flex justify-between items-center px-3 md:px-5 min-w-[375px] max-w-full mx-auto gap-5">
         <div className="w-full max-w-[1100px] mx-auto flex justify-between items-center">
-          {/* 로고 버튼 */}
+          {/* 로고 아이콘 */}
           <Link href={"/"} className="flex gap-2 items-center flex-shrink-0">
             <Image
               src="/images/logo/logo_icon.png"
@@ -53,7 +53,7 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* 모바일과 태블릿에서만 보이도록 설정 (햄버거 아이콘) */}
+          {/* 햄버거 버튼 - 모바일과 태블릿에서만 보이도록 설정 */}
           <button className="md:hidden p-2" onClick={toggleMenu}>
             <Image
               src="/images/icon/hamburger_icon.png"
@@ -66,12 +66,13 @@ export default function Header() {
         </div>
       </header>
 
-      {/* 모바일에서 메뉴가 열리면 나타나는 <aside> */}
+      {/* 햄버거 버튼을 누르면 나타나는 메뉴 (태블릿, 모바일)) */}
       <aside
         className={`md:hidden w-64 fixed right-0 inset-y-0 bg-brown1 transition-transform duration-300 z-50 transform ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
+        {/* 메뉴 닫기 버튼 */}
         <button
           className="absolute top-4 right-4 text-white"
           onClick={closeMenu}
