@@ -1,3 +1,5 @@
+// 모든 페이지에 적용되는 글로벌 레이아웃
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
