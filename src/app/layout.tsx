@@ -2,6 +2,8 @@
 
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "ROLL OUT COFFEE",
@@ -21,9 +23,9 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <div>
-          {/* <Header/> */}
+          <Header/>
           <main>{children}</main>
-          {/* <Footer/> */}
+          <Footer/>
         </div>
       </body>
     </html>
