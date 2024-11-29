@@ -100,7 +100,7 @@ export default function Page() {
                 className="object-cover"
                 priority
               />
-              <span>{item.name}</span>
+              <span className="text-sm text-dark4">{item.name}</span>
             </div>
           ))}
       </div>
