@@ -5,7 +5,11 @@ import Image from "next/image";
 import { menuItems } from "../../mock/menu";
 import { menuCategories } from "../../mock/menu-category";
 
-const initialFilters = {
+// 필터 상태의 타입 정의
+type FilterKeys = "all" | "signature" | "coffee" | "drip" | "drink" | "sweetTea" | "tea" | "dessert";
+type Filters = Record<FilterKeys, boolean>;
+
+const initialFilters: Filters = {
   all: true,
   signature: false,
   coffee: false,
@@ -18,10 +22,10 @@ const initialFilters = {
 
 export default function Page() {
   // 필터 상태 관리
-  const [filters, setFilters] = useState(initialFilters);
+  const [filters, setFilters] = useState<Filters>(initialFilters);
 
   // 체크박스 상태 변경 함수
-  const handleFilterChange = (category: string) => {
+  const handleFilterChange = (category: FilterKeys) => {
     setFilters((prevState) => {
       if (category === "all") {
         return initialFilters;
@@ -66,8 +70,8 @@ export default function Page() {
               <li key={value} className="flex items-start items-center gap-2">
                 <input
                   type="checkbox"
-                  checked={filters[value]}
-                  onChange={() => handleFilterChange(value)}
+                  checked={filters[value as FilterKeys]} // 키가 유효하다고 명시
+                  onChange={() => handleFilterChange(value as FilterKeys)}
                 />
                 <span>{label}</span>
               </li>
@@ -84,7 +88,7 @@ export default function Page() {
               return true; 
             }
 
-            return filters[item.category];
+            return filters[item.category as FilterKeys]; // 키가 유효하다고 명시
           })
           .map((item, index) => (
             <div key={index} className="flex flex-col items-center gap-2">
