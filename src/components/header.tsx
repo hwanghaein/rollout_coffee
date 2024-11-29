@@ -86,7 +86,7 @@ export default function Header() {
           />
         </button>
         <ul className="text-13 text-gray1 flex flex-col items-start text-left text-base">
-          <li className="py-8 pl-4 w-full text-left border-gray3 bg-brown2"></li>
+          <li className="py-10 pl-4 w-full text-left border-gray3 bg-brown2"></li>
           <Link href={"/menu"} className="py-6 pl-4 w-full text-left border-b-2 border-gray3">
             <li>MENU</li>
           </Link>
