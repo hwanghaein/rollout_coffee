@@ -19,7 +19,7 @@ export default function Header() {
           <Link href={"/"} className="flex gap-2 items-center flex-shrink-0">
             <Image
               src="/images/logo/logo_icon.png"
-              alt="Roll Out Coffee Logo Icon"
+              alt="롤아웃 커피 로고 아이콘"
               width={45}
               height={45}
               className="object-contain h-full"
@@ -27,7 +27,7 @@ export default function Header() {
             />
             <Image
               src="/images/logo/logo_text.png"
-              alt="Roll Out Coffee Logo Text"
+              alt="롤아웃 커피 로고 텍스트"
               width={85}
               height={45}
               className="object-contain min-w-20 hidden sm:block"
@@ -57,7 +57,7 @@ export default function Header() {
           <button className="md:hidden p-2" onClick={toggleMenu}>
             <Image
               src="/images/icon/hamburger_icon.png"
-              alt="Menu Toggle"
+              alt="메뉴 열기 버튼"
               width={30}
               height={30}
               className="object-contain"
@@ -79,7 +79,7 @@ export default function Header() {
         >
           <Image
             src="/images/icon/close_icon.png"
-            alt="Close Menu"
+            alt="메뉴 닫기 버튼"
             width={30}
             height={30}
             className="object-contain"
