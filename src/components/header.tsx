@@ -13,23 +13,23 @@ export default function Header() {
 
   return (
     <div>
-      <header className="sticky top-0 w-full h-16 bg-primary flex justify-between items-center px-3 md:px-5 min-w-[375px] max-w-full mx-auto gap-5">
+      <header className="sticky top-0 w-full h-20 bg-primary flex justify-between items-center px-3 md:px-5 min-w-[375px] max-w-full mx-auto gap-5">
         <div className="w-full max-w-[1100px] mx-auto flex justify-between items-center">
           {/* 로고 아이콘 */}
           <Link href={"/"} className="flex gap-2 items-center flex-shrink-0">
             <Image
               src="/images/logo/logo_icon.png"
               alt="Roll Out Coffee Logo Icon"
-              width={40}
-              height={40}
+              width={45}
+              height={45}
               className="object-contain h-full"
               priority
             />
             <Image
               src="/images/logo/logo_text.png"
               alt="Roll Out Coffee Logo Text"
-              width={80}
-              height={40}
+              width={85}
+              height={45}
               className="object-contain min-w-20 hidden sm:block"
               priority
             />
