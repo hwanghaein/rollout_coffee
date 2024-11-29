@@ -6,13 +6,13 @@ export default function Page() {
       <span className="text-dark2 text-4xl mb-10">ROLL OUT COFFEE</span>
       <Image
         src="/images/about-rollout/plane_img.png"
-        alt="가"
+        alt="비행기"
         width={1100}
         height={300}
         className="object-contain mb-12"
       />
       <span className="text-2xl text-secondary mb-7">TAKE-OFF AND LANDING</span>
-      <div className="leading-loose text-lg text-dark4">
+      <div className="leading-loose text-lg text-dark4 border-gray-4 ">
         Roll Out Coffee는 한 잔의 커피에 새로운 커피 경험을 선보입니다. <br />
         "Roll out"은 “신형 비행기가 첫 공개나 전시를 앞두고 활주로를 벗어나는
         순간”을 의미합니다.
