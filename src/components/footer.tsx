@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="w-full bg-dark5 text-gray4 px-6 text-center py-10">
+    <footer className="w-full bg-dark5 text-gray4 px-6 text-center py-10 bottom-0 ">
       <div className="min-w-[375px] max-w-[1100px] mx-auto flex justify-center items-center gap-6 text-xs flex flex-col">
         <div className="flex gap-6">
         <p>사업자 등록 번호: 102-05-08545</p>
