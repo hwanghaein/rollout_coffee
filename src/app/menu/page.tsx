@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; 
 import { menuItems } from "../../mock/menu";
 import { menuCategories } from "../../mock/menu-category";
 
-// 필터 상태의 타입 정의
 type FilterKeys = "all" | "signature" | "coffee" | "drip" | "drink" | "sweetTea" | "tea" | "dessert";
 type Filters = Record<FilterKeys, boolean>;
 
@@ -21,10 +21,8 @@ const initialFilters: Filters = {
 };
 
 export default function Page() {
-  // 필터 상태 관리
   const [filters, setFilters] = useState<Filters>(initialFilters);
-
-  // 체크박스 상태 변경 함수
+  const router = useRouter(); 
   const handleFilterChange = (category: FilterKeys) => {
     setFilters((prevState) => {
       if (category === "all") {
@@ -37,6 +35,10 @@ export default function Page() {
         };
       }
     });
+  };
+
+  const handleMenuClick = (id: string) => {
+    router.push(`/menu/detail/${id}`); 
   };
 
   return (
@@ -65,12 +67,11 @@ export default function Page() {
         </div>
         <div>
           <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 text-sm text-dark1 mt-5">
-            {/* 필터 */}
             {menuCategories.map(({ label, value }) => (
               <li key={value} className="flex items-start items-center gap-2">
                 <input
                   type="checkbox"
-                  checked={filters[value as FilterKeys]} // 키가 유효하다고 명시
+                  checked={filters[value as FilterKeys]} 
                   onChange={() => handleFilterChange(value as FilterKeys)}
                 />
                 <span>{label}</span>
@@ -81,17 +82,19 @@ export default function Page() {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
-        {/* 메뉴 */}
         {menuItems
           .filter((item) => {
             if (filters.all) {
-              return true; 
+              return true;
             }
-
-            return filters[item.category as FilterKeys]; // 키가 유효하다고 명시
+            return filters[item.category as FilterKeys];
           })
-          .map((item, index) => (
-            <div key={index} className="flex flex-col items-center gap-2">
+          .map((item) => (
+            <div
+              key={item.id} 
+              className="flex flex-col items-center gap-1 cursor-pointer"
+              onClick={() => handleMenuClick(item.id)} 
+            >
               <Image
                 src={item.src}
                 alt={item.alt}
