@@ -5,10 +5,10 @@ export default function Page() {
     <div className="px-4 md:w-full max-w-[1100px] mx-auto flex flex-col pt-7 pb-20">
       <span className="text-dark2 text-4xl mb-10">ROLL OUT COFFEE</span>
       <Image
-        src="/images/store/store_img.jpeg"
+        src="/images/store/store_img.png"
         alt="롤아웃 커피 외관"
         width={1100}
-        height={300}
+        height={500}
         className="object-contain mb-12"
       />
       <div className="flex flex-col gap-5 pb-7 mb-7 border-b-[1px] ">
