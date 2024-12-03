@@ -22,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-      <div className="flex flex-col ">
-          <Header/>
-          <main>{children}</main>
-          <Footer/>
+        <div className="flex flex-col  ">
+          <Header />
+          <main className=" bg-gray5">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
