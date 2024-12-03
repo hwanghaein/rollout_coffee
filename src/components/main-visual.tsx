@@ -1,9 +1,11 @@
+"use client"
+
 import Image from "next/image";
 
 export default function MainVisual() {
   return (
     <div>
-      <section className="visual relative w-full h-[50vh] sm:h-[40vh] md:h-[30vh] lg:h-[20vh]">
+      <section className=" w-full ">
         <Image
           src="/images/main/visual.png"
           alt="비주얼 영역 배경"
