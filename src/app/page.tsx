@@ -1,11 +1,12 @@
-// 메인 페이지
-
+"use client"
+import MainSlide from "@/components/main-slide";
 import MainVisual from "@/components/main-visual";
 
 export default function Home() {
   return (
-    <div>
-      <div> <MainVisual/></div>
+    <div className="flex flex-col">
+      <div> <MainVisual /> </div>
+      <div> <MainSlide /> </div>
     </div>
   );
 }
