@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function MainDipFinancier() {
+export default function DippingFinancier() {
   return (
     <div>
       <section className="relative w-full h-auto">

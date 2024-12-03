@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function MainNewFinancier() {
+export default function NewFinancier() {
   return (
     <div>
       <section className="relative w-full h-auto ">

@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
-export default function MainSlide() {
+export default function NewSlide() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {

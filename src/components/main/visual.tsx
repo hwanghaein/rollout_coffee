@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function MainVisual() {
+export default function Visual() {
   return (
     <div>
       <section className=" w-full ">

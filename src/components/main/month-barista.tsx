@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function MainMonthBarista() {
+export default function MonthBarista() {
   return (
     <div>
       <section className="relative w-full h-auto">
