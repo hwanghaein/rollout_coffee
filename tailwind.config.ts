@@ -25,7 +25,6 @@ export default {
         gray5: "#EDEDED",
         brown1: '#352A1C',
         brown2: '#24211D',
-        
       },
       fontSize: {
         '13': '0.8125rem',  // 13px를 rem으로 변환한 값 (13px ÷ 16px = 0.8125rem)
@@ -41,8 +40,8 @@ export default {
         },
       },
       animation: {
-        'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
-        'slide-in-right': 'slideInRight 0.8s ease-out forwards',
+        'slide-in-left-delay': 'slideInLeft 1.0s ease-out forwards 0.5s', 
+        'slide-in-right-delay': 'slideInRight 1.0s ease-out forwards 0.8s',  
       },
     },
   },
