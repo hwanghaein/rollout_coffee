@@ -22,8 +22,10 @@ export default {
         gray2: '#666666',
         gray3: '#4E4E4E',
         gray4: '#DCDCDC',
+        gray5: "#EDEDED",
         brown1: '#352A1C',
         brown2: '#24211D',
+        
       },
       fontSize: {
         '13': '0.8125rem',  // 13px를 rem으로 변환한 값 (13px ÷ 16px = 0.8125rem)
