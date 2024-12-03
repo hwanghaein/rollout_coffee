@@ -30,6 +30,20 @@ export default {
       fontSize: {
         '13': '0.8125rem',  // 13px를 rem으로 변환한 값 (13px ÷ 16px = 0.8125rem)
       },
+      keyframes: {
+        slideInLeft: {
+          '0%': { transform: 'translateX(-150px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        slideInRight: {
+          '0%': { transform: 'translateX(150px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+      },
+      animation: {
+        'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
+        'slide-in-right': 'slideInRight 0.8s ease-out forwards',
+      },
     },
   },
   plugins: [],
