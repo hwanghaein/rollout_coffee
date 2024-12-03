@@ -67,8 +67,8 @@ export default function MainSlide() {
                   height={517}
                 />
               </div>
-              <div className="flex justify-center pb-10">
-                <button className="text-black md:px-3 md:py-1 md:text-sm hidden sm:block px-2 py-1 text-xs bg-gray5 border-[1px] border-solid border-black rounded transition-all duration-300 hover:bg-black hover:text-white">
+              <div className="flex justify-center pb-16">
+                <button className="text-black md:px-3 md:py-1 md:text-sm  px-2 py-1 sm:text-xs text-[8px] bg-gray5 border-[1px] border-solid border-black rounded transition-all duration-300 hover:bg-black hover:text-white">
                   자세히 보기
                 </button>
               </div>
