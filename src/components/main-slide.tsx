@@ -25,7 +25,7 @@ export default function MainSlide() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full pb-10">
       <section className="w-full overflow-hidden">
         <Swiper
           style={{
