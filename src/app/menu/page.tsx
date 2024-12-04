@@ -43,7 +43,7 @@ export default function Page() {
 
   return (
     <div className="px-4 md:w-full max-w-[1100px] mx-auto flex flex-col pt-7 pb-20">
-      <span className="text-dark2 text-4xl mb-10">MENU</span>
+      <span className="text-dark2 text-3xl mb-10">MENU</span>
       <div className="p-5 flex flex-col border-[1px] border-solid border-gray4 rounded-md mb-10">
         <div className="flex pb-4 border-b-[1px] border-gray-4 justify-between items-center">
           <div className="text-lg text-dark2">메뉴 검색</div>
@@ -68,7 +68,7 @@ export default function Page() {
         <div>
           <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 text-sm text-dark1 mt-5">
             {menuCategories.map(({ label, value }) => (
-              <li key={value} className="flex items-start items-center gap-2">
+              <li key={value} className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   checked={filters[value as FilterKeys]} 
@@ -94,15 +94,19 @@ export default function Page() {
               key={item.id} 
               className="flex flex-col items-center gap-1 cursor-pointer"
               onClick={() => handleMenuClick(item.id)} 
+              
             >
+              
+              <div className="overflow-hidden">
               <Image
-                src={item.src}
+                 src={item.images?.[0] || '/images/default-image.png'}
                 alt={item.alt}
                 width={258}
                 height={270}
-                className="object-cover"
+                className="object-cover transform transition-transform duration-500 hover:scale-110 !important"
                 priority
               />
+              </div>
               <span className="text-sm text-dark4">{item.name}</span>
             </div>
           ))}

@@ -1,9 +1,29 @@
+"use client";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Thumbs } from "swiper/modules";
 import Image from "next/image";
 import { menuItems } from "../../../../mock/menu";
+import { useState, useEffect } from "react";
+import { Swiper as SwiperType } from "swiper";
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
-  const menuItem = menuItems.find((item) => item.id === id);
+export default function Page({ params }: { params: Promise<{ id: string }> }) {
+  const [id, setId] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchParams() {
+      const unwrappedParams = await params;
+      setId(unwrappedParams.id);
+    }
+    fetchParams();
+  }, [params]);
+
+  const menuItem = id ? menuItems.find((item) => item.id === id) : null;
+
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   if (!menuItem) {
     return <div>Menu item not found</div>;
@@ -11,31 +31,113 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <div className="px-4 md:w-full max-w-[1100px] mx-auto flex flex-col pt-7 pb-20">
-      <span className="text-dark2 text-4xl mb-10">{menuItem.category.toUpperCase()}</span>
+      <span className="text-dark2 text-3xl mb-10">
+        {menuItem.category.toUpperCase()}
+      </span>
+
       <div className="flex flex-col md:flex-row gap-10">
         <div className="md:order-1 order-2">
-          <Image
-            src={menuItem.src}
-            alt={menuItem.alt}
-            width={450}
-            height={470}
-            className="object-contain mb-12"
-          />
+          <div className="relative max-w-[450px] overflow-hidden bg-dark2">
+            {menuItem.images.length > 1 ? (
+              // 이미지가 2개 이상일 때 Swiper 사용
+              <Swiper
+                style={
+                  {
+                    "--swiper-navigation-color": "#fff",
+                    "--swiper-pagination-color": "#fff",
+                  } as React.CSSProperties
+                }
+                loop={true}
+                spaceBetween={10}
+                navigation={true}
+                pagination={{ clickable: true }}
+                thumbs={{ swiper: thumbsSwiper }}
+                modules={[Navigation, Pagination, Thumbs]}
+                className="mySwiper2"
+              >
+                {menuItem.images.map((imageSrc, index) => (
+                  <SwiperSlide key={index}>
+                    <Image
+                      src={imageSrc}
+                      alt={menuItem.alt || "Menu Item Image"}
+                      width={450}
+                      height={470}
+                      className="object-cover"
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            ) : (
+              // 이미지가 1개일 때 그냥 이미지로 표시
+              <Image
+                src={menuItem.images[0]}
+                alt={menuItem.alt || "Menu Item Image"}
+                width={450}
+                height={470}
+                className="object-cover"
+              />
+            )}
+
+            {/* 썸네일 스와이퍼 */}
+            {menuItem.images.length > 1 && (
+              <Swiper
+                onSwiper={setThumbsSwiper}
+                spaceBetween={10}
+                slidesPerView={3}
+                freeMode={true}
+                watchSlidesProgress={true}
+                modules={[Navigation, Thumbs]}
+                className="mySwiper mt-2"
+              >
+                {menuItem.images.map((imageSrc, index) => (
+                  <SwiperSlide key={index}>
+                    <Image
+                      src={imageSrc}
+                      alt={menuItem.alt || "Menu Item Thumbnail"}
+                      width={150}
+                      height={60}
+                      className="object-cover cursor-pointer"
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
+          </div>
         </div>
-        <div className="flex flex-col order-1 md:order-2">
+        <div className="flex flex-col w-full order-1 md:order-2">
           <div className="flex flex-col border-b-2 border-solid border-dark3 mb-7">
             <span className="text-2xl text-dark2 mb-2">{menuItem.name}</span>
             <span className="text-m text-gray2 mb-7">{menuItem.engName}</span>
           </div>
           <div className="flex flex-col border-b-[1px] border-solid border-gray4 mb-7">
-            <span className="text-lg text-dark3 font-bold mb-7">{menuItem.description}</span>
-            <span className="text-m text-dark3 mb-7 container">{menuItem.tip}</span>
+            <div className="flex items-center mb-7">
+              <div className="w-[5px] h-[5px] rounded-full bg-dark3 mr-2"></div>
+              <span className="text-lg text-dark3 font-bold">
+                {menuItem.description}
+              </span>
+            </div>
+            <div className="flex items-start">
+  <span className="text-white bg-secondary rounded-full px-2 py-1 text-sm mr-2 inline-flex items-center justify-center">
+    Tip
+  </span>
+  <span className="text-lg text-dark3 mb-7 inline-block">
+    {menuItem.tip}
+  </span>
+</div>
+
           </div>
-          <div className="border-b-[1px] border-solid border-gray4">
-            <span className="text-lg text-dark4 inline-block mb-7">
-              {menuItem.temperature === "none" ? "Not applicable" : menuItem.temperature.toUpperCase()}
-            </span>
-          </div>
+
+          {menuItem.temperature === "none" ? null : (
+            <div className="border-b-[1px] border-solid border-gray4">
+              <span className="text-lg text-dark4 inline-block mb-7">
+                {menuItem.temperature === "both"
+                  ? "ICE / HOT"
+                  : menuItem.temperature === "ice"
+                  ? "ONLY ICE"
+                  : "ONLY HOT"}
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </div>
