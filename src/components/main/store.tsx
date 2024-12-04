@@ -1,14 +1,20 @@
 "use client";
 
+import { useRouter } from "next/navigation"; 
 import Image from "next/image";
 import { useIntersectionObserver } from "./../../hooks/useIntersectionObserver"; 
 import { useEffect, useState } from "react";
 import styles from "./store.module.css";
 
 export default function Store() {
+  const router = useRouter(); 
   const { ref, isVisible } = useIntersectionObserver(); // 훅 사용하여 isVisible 상태 관리
   const [hasHovered, setHasHovered] = useState(false); // hover 상태를 추적하는 상태
   const [rotate, setRotate] = useState(false); // 회전 상태를 추적하는 상태
+
+  const handleButtonClick = () => {
+    router.push("/store");
+  };
 
   // 첫 번째 효과가 끝난 후 원래 상태로 돌아가도록 설정
   useEffect(() => {
@@ -63,7 +69,7 @@ export default function Store() {
                   className="cursor-pointer object-cover min-w-[90px] max-w-[20%] md:max-w-[50%] lg:max-w-[300px]"
                   priority
                 />
-                <button className="absolute z-10 mt-12 md:mt-20 lg:mt-40 text-white md:px-2 md:py-1 lg:px-4 lg:py-2 md:text-sm px-[5px] py-[2px] sm:text-xs text-[8px] border-[1px] border-solid border-white rounded transition-all duration-300 hover:bg-white hover:text-black">
+                <button onClick={handleButtonClick} className="absolute z-10 mt-12 md:mt-20 lg:mt-40 text-white md:px-2 md:py-1 lg:px-4 lg:py-2 md:text-sm px-[5px] py-[2px] sm:text-xs text-[8px] border-[1px] border-solid border-white rounded transition-all duration-300 hover:bg-white hover:text-black">
                   매장 정보
                 </button>
               </div>

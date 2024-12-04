@@ -1,10 +1,16 @@
 "use client";
 
+import { useRouter } from "next/navigation"; 
 import Image from "next/image";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function NewFinancier() {
+  const router = useRouter(); 
   const { ref, isVisible } = useIntersectionObserver(0.5); 
+
+  const handleButtonClick = () => {
+    router.push("/menu/detail/15");
+  };
 
   return (
     <div ref={ref}>
@@ -34,7 +40,7 @@ export default function NewFinancier() {
               className="object-cover min-w-[100px] max-w-[30%] md:max-w-[50%] lg:max-w-[342px]"
               priority
             />
-            <button className="text-white md:px-4 md:py-2 md:text-sm px-2 py-1 sm:text-xs text-[8px] border-[1px] border-solid border-white rounded transition-all duration-300 hover:bg-white hover:text-black mt-6">
+            <button onClick={handleButtonClick} className="text-white md:px-4 md:py-2 md:text-sm px-2 py-1 sm:text-xs text-[8px] border-[1px] border-solid border-white rounded transition-all duration-300 hover:bg-white hover:text-black mt-6">
               자세히 보기
             </button>
           </div>

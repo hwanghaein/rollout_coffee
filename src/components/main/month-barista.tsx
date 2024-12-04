@@ -1,10 +1,17 @@
 "use client";
 
+import { useRouter } from "next/navigation"; 
 import Image from "next/image";
 import { useIntersectionObserver } from "./../../hooks/useIntersectionObserver";
 
 export default function MonthBarista() {
+  const router = useRouter(); 
+
   const { ref: sectionRef, isVisible } = useIntersectionObserver(0.5); 
+
+  const handleButtonClick = () => {
+    router.push("/menu/detail/3");
+  };
 
   return (
     <div ref={sectionRef}>
@@ -58,7 +65,9 @@ export default function MonthBarista() {
               className="object-cover min-w-[120px] max-w-[30%] md:max-w-[70%] lg:max-w-[460px]"
               priority
             />
-            <button className="text-black sm:w-20 lg:w-24 mt-2 whitespace-nowrap w-14 py-1 md:py-2 md:mt-7 md:text-sm sm:text-xs text-[8px] bg-transparent border-[1px] border-solid border-black rounded transition-all duration-300 hover:bg-black hover:text-white">
+            <button 
+              onClick={handleButtonClick}
+              className="text-black sm:w-20 lg:w-24 mt-2 whitespace-nowrap w-14 py-1 md:py-2 md:mt-7 md:text-sm sm:text-xs text-[8px] bg-transparent border-[1px] border-solid border-black rounded transition-all duration-300 hover:bg-black hover:text-white">
               자세히 보기
             </button>
           </div>

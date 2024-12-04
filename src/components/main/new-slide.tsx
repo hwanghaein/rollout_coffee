@@ -3,36 +3,36 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/autoplay"; 
+import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
+import { useRouter } from "next/navigation";
+import { slides } from "@/mock/new-slide";
 
 export default function NewSlide() {
-  const [isClient, setIsClient] = useState(false);
+  const [isClient, setIsClient] = useState(false); 
+  const router = useRouter();
 
   useEffect(() => {
-    setIsClient(true);
+    setIsClient(true); 
   }, []);
 
-  if (!isClient) return null;
 
-  const slides = [
-    { src: "/images/main/main_slide1.png", alt: "슬라이드1" },
-    { src: "/images/main/main_slide2.png", alt: "슬라이드2" },
-    { src: "/images/main/main_slide3.png", alt: "슬라이드3" },
-    { src: "/images/main/main_slide4.png", alt: "슬라이드4" },
-    { src: "/images/main/main_slide5.png", alt: "슬라이드5" },
-    { src: "/images/main/main_slide6.png", alt: "슬라이드6" },
-  ];
+  const handleButtonClick = (link: string) => {
+    router.push(link);
+  };
+
 
   return (
     <div className="w-full pb-10">
       <section className="w-full overflow-hidden">
         <Swiper
-          style={{
-            "--swiper-navigation-color": "white",
-            "--swiper-pagination-color": "black",
-          } as React.CSSProperties} 
+          style={
+            {
+              "--swiper-navigation-color": "white",
+              "--swiper-pagination-color": "black",
+            } as React.CSSProperties
+          }
           loop={true}
           keyboard={true}
           slidesPerView={3}
@@ -43,17 +43,12 @@ export default function NewSlide() {
           navigation={true}
           pagination={{ clickable: true }}
           spaceBetween={4}
-          modules={[Navigation, Pagination, Autoplay]}
+          modules={[Navigation, Pagination]}
           className="bg-gray5"
-          autoplay={{
-            delay: 2000, 
-            disableOnInteraction: false, 
-          }}
-          speed={600} 
+          speed={600}
           breakpoints={{
             320: {
               slidesPerView: 2,
-              
             },
             640: {
               slidesPerView: 2,
@@ -74,7 +69,10 @@ export default function NewSlide() {
                 />
               </div>
               <div className="flex justify-center pb-16">
-                <button className="text-black md:px-3 md:py-1 md:text-sm  px-2 py-1 sm:text-xs text-[8px] bg-gray5 border-[1px] border-solid border-black rounded transition-all duration-300 hover:bg-black hover:text-white">
+                <button
+                  onClick={() => handleButtonClick(slide.link)} 
+                  className="text-black md:px-3 md:py-1 md:text-sm px-2 py-1 sm:text-xs text-[8px] bg-gray5 border-[1px] border-solid border-black rounded transition-all duration-300 hover:bg-black hover:text-white"
+                >
                   자세히 보기
                 </button>
               </div>
