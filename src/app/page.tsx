@@ -9,7 +9,7 @@ import Store from "@/components/main/store";
 
 export default function Home() {
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col bg-gray5">
       <div> <Visual /></div>
       <div> <NewSlide /></div>
       <div> <MonthBarista /></div>

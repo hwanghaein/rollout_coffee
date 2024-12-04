@@ -24,7 +24,7 @@ export default function RootLayout({
       <body>
         <div className="flex flex-col  ">
           <Header />
-          <main className=" bg-gray5">{children}</main>
+          <main>{children}</main>
           <Footer />
         </div>
       </body>
