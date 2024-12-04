@@ -27,7 +27,9 @@ export default function Page() {
 
       <div className="flex flex-col gap-5 pb-7 mb-7 border-b-[1px] ">
         <span className="text-2xl text-secondary">Telephone</span>
-        <span className="text-lg text-dark4">0507-1392-5605</span>
+        <a href="tel:0507-1392-5605" className="text-lg text-dark4 hover:text-blue-500">
+          0507-1392-5605
+        </a>
       </div>
 
       <div className="flex flex-col gap-5 pb-7 mb-7 border-b-[1px] ">
@@ -51,7 +53,14 @@ export default function Page() {
 
       <div className="flex flex-col gap-5 pb-7 mb-7 border-b-[1px] ">
         <span className="text-2xl text-secondary">Instagram</span>
-        <span className="text-lg text-dark4">@rollout_coffee </span>
+        <a
+          href="https://www.instagram.com/rollout_coffee/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-lg text-dark4 hover:text-blue-500"
+        >
+          @rollout_coffee
+        </a>
       </div>
 
       <div className="flex flex-col gap-5 pb-7 mb-7 border-b-[1px] ">
