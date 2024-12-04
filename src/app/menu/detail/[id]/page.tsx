@@ -43,7 +43,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
               <Swiper
                 style={
                   {
-                    "--swiper-navigation-color": "#fff",
+                    "--swiper-navigation-color": "#D9D9D9",
                     "--swiper-pagination-color": "#fff",
                   } as React.CSSProperties
                 }
@@ -117,8 +117,8 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
               </span>
             </div>
             <div className="flex items-start">
-  <span className="text-white bg-secondary rounded-full px-2 py-1 text-sm mr-2 inline-flex items-center justify-center">
-    Tip
+  <span className="text-secondary font-bold text-lg mr-2 ">
+    Tip.
   </span>
   <span className="text-lg text-dark3 mb-7 inline-block">
     {menuItem.tip}
