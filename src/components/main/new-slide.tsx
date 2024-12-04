@@ -3,8 +3,9 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/autoplay"; 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 export default function NewSlide() {
   const [isClient, setIsClient] = useState(false);
@@ -42,8 +43,13 @@ export default function NewSlide() {
           navigation={true}
           pagination={{ clickable: true }}
           spaceBetween={4}
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
           className="bg-gray5"
+          autoplay={{
+            delay: 2000, 
+            disableOnInteraction: false, 
+          }}
+          speed={600} 
           breakpoints={{
             320: {
               slidesPerView: 2,
