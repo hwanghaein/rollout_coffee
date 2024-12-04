@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function NewFinancier() {
-  const { ref, isVisible } = useIntersectionObserver(0.3); 
+  const { ref, isVisible } = useIntersectionObserver(0.5); 
 
   return (
     <div ref={ref}>

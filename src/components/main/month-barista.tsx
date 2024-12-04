@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { useIntersectionObserver } from "./../../hooks/useIntersectionObserver";
 
 export default function MonthBarista() {
-  const { ref: sectionRef, isVisible } = useIntersectionObserver(0.3); 
+  const { ref: sectionRef, isVisible } = useIntersectionObserver(0.5); 
 
   return (
     <div ref={sectionRef}>
@@ -55,10 +55,10 @@ export default function MonthBarista() {
               alt="블루베리와 블랙커런트의 맛과 향을 느낄 수 있는 달콤한 라떼를 즐겨보세요!"
               width={460}
               height={51}
-              className="object-cover min-w-[110px] max-w-[30%] md:max-w-[70%] lg:max-w-[460px]"
+              className="object-cover min-w-[120px] max-w-[30%] md:max-w-[70%] lg:max-w-[460px]"
               priority
             />
-            <button className="text-black md:w-24 mt-2 whitespace-nowrap w-14 py-1 md:py-2 md:mt-7 md:text-sm sm:text-xs text-[8px] bg-transparent border-[1px] border-solid border-black rounded transition-all duration-300 hover:bg-black hover:text-white">
+            <button className="text-black sm:w-20 lg:w-24 mt-2 whitespace-nowrap w-14 py-1 md:py-2 md:mt-7 md:text-sm sm:text-xs text-[8px] bg-transparent border-[1px] border-solid border-black rounded transition-all duration-300 hover:bg-black hover:text-white">
               자세히 보기
             </button>
           </div>

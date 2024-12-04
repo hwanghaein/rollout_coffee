@@ -42,7 +42,7 @@ export default function DippingFinancier() {
               className="object-cover min-w-[150px] max-w-[30%] md:max-w-[50%] lg:max-w-[460px] hidden sm:block mt-5"
               priority
             />
-            <button className="text-white md:px-4 md:py-2 md:text-sm px-2 py-1 sm:text-xs text-[8px] border-[1px] border-solid border-white rounded transition-all duration-300 hover:bg-white hover:text-black mt-6">
+            <button className="text-white mt-[10px] md:mt-6 md:px-4 md:py-2 md:text-sm px-2 py-1 sm:text-xs text-[8px] border-[1px] border-solid border-white rounded transition-all duration-300 hover:bg-white hover:text-black">
               자세히 보기
             </button>
           </div>
