@@ -111,9 +111,8 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
           </div>
           <div className="flex flex-col border-b-[1px] border-solid border-gray4 mb-7">
             <div className="flex items-center mb-7">
-              <div className="w-[5px] h-[5px] rounded-full bg-dark3 mr-2"></div>
               <span className="text-lg text-dark3 font-bold">
-                {menuItem.description}
+              • {menuItem.description}
               </span>
             </div>
             {menuItem.tip === "none" ? <div className="h-14"></div> : (
