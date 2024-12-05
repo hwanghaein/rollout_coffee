@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { menuItems } from "../../mock/menu";
 import { menuCategories } from "../../mock/menu-category";
-
-type FilterKeys = "all" | "signature" | "coffee" | "drip" | "drink" | "sweetTea" | "tea" | "dessert";
-type Filters = Record<FilterKeys, boolean>;
+import { getDocs, collection } from "firebase/firestore";
+import fireStore from "../../../firebase/firestore";
+import { MenuItem, Filters, FilterKeys } from "../../types/MenuItem";
 
 const initialFilters: Filters = {
   all: true,
@@ -23,7 +22,27 @@ const initialFilters: Filters = {
 export default function Page() {
   const [filters, setFilters] = useState<Filters>(initialFilters);
   const [searchQuery, setSearchQuery] = useState<string>(""); 
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);  
   const router = useRouter();
+
+  // Firebase에서 menuItems 데이터를 가져오는 함수
+  const fetchMenuItems = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(fireStore, "menuItems"));
+      const items: MenuItem[] = []; 
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data() as MenuItem);
+      });
+      setMenuItems(items);
+      console.log(menuItems);
+    } catch (error) {
+      console.error("Error fetching menu items: ", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchMenuItems();
+  }, []); 
 
   const handleFilterChange = (category: FilterKeys) => {
     setFilters((prevState) => {
@@ -113,7 +132,7 @@ export default function Page() {
             >
               <div className="overflow-hidden">
                 <Image
-                  src={item.images?.[0] || "/images/default-image.png"}
+                  src={Array.isArray(item.images) ? item.images[0] : item.images || "/images/default-image.png"}
                   alt={item.alt}
                   width={258}
                   height={270}
