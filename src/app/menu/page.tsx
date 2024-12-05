@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import { menuItems } from "../../mock/menu";
 import { menuCategories } from "../../mock/menu-category";
 
@@ -22,7 +22,9 @@ const initialFilters: Filters = {
 
 export default function Page() {
   const [filters, setFilters] = useState<Filters>(initialFilters);
-  const router = useRouter(); 
+  const [searchQuery, setSearchQuery] = useState<string>(""); 
+  const router = useRouter();
+
   const handleFilterChange = (category: FilterKeys) => {
     setFilters((prevState) => {
       if (category === "all") {
@@ -38,11 +40,24 @@ export default function Page() {
   };
 
   const handleMenuClick = (id: string) => {
-    router.push(`/menu/detail/${id}`); 
+    router.push(`/menu/detail/${id}`);
   };
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value); 
+  };
+
+  const filteredItems = menuItems.filter((item) => {
+    const matchesCategory =
+      filters.all || filters[item.category as FilterKeys];
+    const matchesSearch =
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()); 
+
+    return matchesCategory && matchesSearch;
+  });
+
   return (
-    <div className="px-4 md:w-full max-w-[1100px] mx-auto flex flex-col pt-7 pb-20">
+    <div className="min-h-screen flex flex-col px-4 md:w-full max-w-[1100px] mx-auto pt-7 pb-20">
       <span className="text-dark2 text-3xl mb-10">MENU</span>
       <div className="p-5 flex flex-col border-[1px] border-solid border-gray4 rounded-md mb-10">
         <div className="flex pb-4 border-b-[1px] border-gray-4 justify-between items-center">
@@ -52,6 +67,9 @@ export default function Page() {
               type="text"
               placeholder="검색"
               className="w-full pl-3 pr-10 py-2 text-sm rounded-md border-none focus:outline-none"
+              value={searchQuery} 
+              onChange={handleSearchChange} 
+              maxLength={13}
             />
             <button className="absolute top-0 right-0 m-1">
               <Image
@@ -71,7 +89,7 @@ export default function Page() {
               <li key={value} className="flex items-center gap-2">
                 <input
                   type="checkbox"
-                  checked={filters[value as FilterKeys]} 
+                  checked={filters[value as FilterKeys]}
                   onChange={() => handleFilterChange(value as FilterKeys)}
                 />
                 <span>{label}</span>
@@ -81,36 +99,33 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
-        {menuItems
-          .filter((item) => {
-            if (filters.all) {
-              return true;
-            }
-            return filters[item.category as FilterKeys];
-          })
-          .map((item) => (
+      {filteredItems.length === 0 ? (
+        <div className="flex justify-center items-center text-lg text-gray-500 font-semibold py-10">
+          검색 결과가 없습니다
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 flex-grow">
+          {filteredItems.map((item) => (
             <div
-              key={item.id} 
+              key={item.id}
               className="flex flex-col items-center gap-1 cursor-pointer"
-              onClick={() => handleMenuClick(item.id)} 
-              
+              onClick={() => handleMenuClick(item.id)}
             >
-              
               <div className="overflow-hidden">
-              <Image
-                 src={item.images?.[0] || '/images/default-image.png'}
-                alt={item.alt}
-                width={258}
-                height={270}
-                className="object-cover transform transition-transform duration-500 hover:scale-110 !important"
-                priority
-              />
+                <Image
+                  src={item.images?.[0] || "/images/default-image.png"}
+                  alt={item.alt}
+                  width={258}
+                  height={270}
+                  className="object-cover transform transition-transform duration-500 hover:scale-110 !important"
+                  priority
+                />
               </div>
               <span className="text-sm text-dark4">{item.name}</span>
             </div>
           ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
