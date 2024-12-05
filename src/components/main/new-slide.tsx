@@ -16,7 +16,7 @@ export default function NewSlide() {
   };
 
   return (
-    <div className="w-full pb-10">
+    <div className="w-full lg:pb-10 md:pb-5 pb-4" >
       <section className="w-full overflow-hidden">
         <Swiper
           style={
@@ -60,7 +60,7 @@ export default function NewSlide() {
                   height={517}
                 />
               </div>
-              <div className="flex justify-center pb-16">
+              <div className="flex justify-center lg:pb-16 md:pb-12 pb-9">
                 <button
                   onClick={() => handleButtonClick(slide.link)}
                   className="text-black md:px-3 md:py-1 md:text-sm px-2 py-1 sm:text-xs text-[8px] bg-gray5 border-[1px] border-solid border-black rounded transition-all duration-300 hover:bg-black hover:text-white"
