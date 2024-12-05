@@ -145,7 +145,6 @@ export const menuItems: MenuItem[] = [
     category: "sweetTea", 
     engName: "Tangerine Tea", 
     description: "상큼하고 향긋한 청귤차", 
-    // tip: "청귤 특유의 상큼한 향과 맛을 천천히 음미하며 여유로운 시간을 즐겨보세요", 
     tip: "none",
     temperature: "hot" 
   },
@@ -168,7 +167,6 @@ export const menuItems: MenuItem[] = [
     category: "tea", 
     engName: "Tea", 
     description: "Flaver. 루이보스 / 카모마일 / 호박팥차 / 블랙커런트", 
-    // tip: "따뜻한 차를 천천히 음미하며 하루의 피로를 풀어보세요. 각 차의 특유의 풍미를 즐겨보는 것도 추천합니다.", 
     tip: "none",
     temperature: "both" 
   },
@@ -180,7 +178,6 @@ export const menuItems: MenuItem[] = [
     category: "dessert", 
     engName: "Financier", 
     description: "Flaver. 츄로스 / 모카번 / 솔티드 아몬드 / 솔티드 카라멜 / 호두 크로칸 / 스위트 카카오 / 소보로 / 레몬", 
-    // tip: "커피와 함께 즐기면 더욱 잘 어울려요.", 
     tip: "none",
     temperature: "none" 
   },

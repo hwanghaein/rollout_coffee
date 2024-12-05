@@ -14,7 +14,7 @@ export default function Page() {
           <div key={item.id} className="flex flex-col items-center gap-2">
             <Image
               src={item.imgSrc}
-              alt={item.altText}
+              alt={item.alt}
               width={258}
               height={270}
               className="object-cover"
