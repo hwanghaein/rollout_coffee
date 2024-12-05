@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -6,15 +6,10 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay"; 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { useRouter } from "next/navigation";
 
 export default function PhotoSlide() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) return null;
+  const router = useRouter(); 
 
   const slides = [
     { src: "/images/main/photo_slide1.png", alt: "슬라이드1" },
@@ -24,6 +19,10 @@ export default function PhotoSlide() {
     { src: "/images/main/photo_slide5.png", alt: "슬라이드5" },
     { src: "/images/main/photo_slide6.png", alt: "슬라이드6" },
   ];
+
+  const handleClick = () => {
+    router.push("/photo-gallery");
+  };
 
   return (
     <div className="w-full">
@@ -72,6 +71,8 @@ export default function PhotoSlide() {
                   alt={slide.alt}
                   width={600}
                   height={600}
+                  onClick={handleClick}
+                  className="cursor-pointer"
                 />
               </div>
             </SwiperSlide>
