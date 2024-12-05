@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,18 +9,11 @@ import { useRouter } from "next/navigation";
 import { slides } from "@/mock/new-slide";
 
 export default function NewSlide() {
-  const [isClient, setIsClient] = useState(false); 
   const router = useRouter();
-
-  useEffect(() => {
-    setIsClient(true); 
-  }, []);
-
 
   const handleButtonClick = (link: string) => {
     router.push(link);
   };
-
 
   return (
     <div className="w-full pb-10">
@@ -70,7 +62,7 @@ export default function NewSlide() {
               </div>
               <div className="flex justify-center pb-16">
                 <button
-                  onClick={() => handleButtonClick(slide.link)} 
+                  onClick={() => handleButtonClick(slide.link)}
                   className="text-black md:px-3 md:py-1 md:text-sm px-2 py-1 sm:text-xs text-[8px] bg-gray5 border-[1px] border-solid border-black rounded transition-all duration-300 hover:bg-black hover:text-white"
                 >
                   자세히 보기
