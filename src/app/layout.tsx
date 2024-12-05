@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     title: "ROLL OUT COFFEE",
     description:
       "롤아웃커피는 신선한 커피와 함께 다양한 디저트를 제공합니다. 편안한 분위기에서 특별한 시간을 보낼 수 있는 커피숍입니다.", 
-      url: "https://rollout-coffee.vercel.app/",
+      url: "https://rollout-coffee.vercel.app",
       siteName: "ROLL OUT COFFEE",
     images: [
       {
-        url: "/thumbnail.png", 
+        url: "https://rollout-coffee.vercel.app/thumbnail.png", 
         width: 1200, 
         height: 630, 
         alt: "ROLL OUT COFFEE 썸네일 이미지",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "ROLL OUT COFFEE",
     description:
       "롤아웃커피는 신선한 커피와 함께 다양한 디저트를 제공합니다. 편안한 분위기에서 특별한 시간을 보낼 수 있는 커피숍입니다.",
-    images: ["/thumbnail.png"], 
+    images: ["https://rollout-coffee.vercel.app/thumbnail.png"], 
   },
 };
 
