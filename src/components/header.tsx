@@ -9,11 +9,11 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false); // 메뉴를 닫는 함수
+  const closeMenu = () => setIsMenuOpen(false); 
 
   return (
     <div>
-      <header className="sticky top-0 w-full h-20 bg-primary flex justify-between items-center px-3 md:px-5 min-w-[375px] max-w-full mx-auto gap-5">
+      <header className="sticky top-0 w-full h-20 bg-primary flex justify-between items-center px-3 md:px-5 max-w-full mx-auto gap-5">
         <div className="w-full max-w-[1100px] mx-auto flex justify-between items-center">
           {/* 로고 아이콘 */}
           <Link href={"/"} className="flex gap-2 items-center flex-shrink-0">
@@ -87,16 +87,16 @@ export default function Header() {
         </button>
         <ul className="text-13 text-gray1 flex flex-col items-start text-left text-base">
           <li className="py-10 pl-4 w-full text-left border-gray3 bg-brown2"></li>
-          <Link href={"/menu"} className="py-6 pl-4 w-full text-left border-b-2 border-gray3">
+          <Link href={"/menu"} className="py-6 pl-4 w-full text-left border-b-2 border-gray3" onClick={closeMenu}>
             <li>MENU</li>
           </Link>
-          <Link href={"/store"} className="py-6 pl-4 w-full text-left border-b-2 border-gray3">
+          <Link href={"/store"} className="py-6 pl-4 w-full text-left border-b-2 border-gray3" onClick={closeMenu}>
             <li>STORE</li>
           </Link>
-          <Link href={"/about-rollout"} className="py-6 pl-4 w-full text-left border-b-2 border-gray3">
+          <Link href={"/about-rollout"} className="py-6 pl-4 w-full text-left border-b-2 border-gray3" onClick={closeMenu}>
             <li>ROLL OUT COFFEE</li>
           </Link>
-          <Link href={"/photo-gallery"} className="py-6 pl-4 w-full text-left border-b-2 border-gray3">
+          <Link href={"/photo-gallery"} className="py-6 pl-4 w-full text-left border-b-2 border-gray3" onClick={closeMenu}>
             <li>PHOTO GALLERY</li>
           </Link>
         </ul>
