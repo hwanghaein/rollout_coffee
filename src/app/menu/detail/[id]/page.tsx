@@ -116,15 +116,16 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                 {menuItem.description}
               </span>
             </div>
-            <div className="flex items-start">
-  <span className="text-secondary font-bold text-lg mr-2 ">
-    Tip.
-  </span>
-  <span className="text-lg text-dark3 mb-7 inline-block">
-    {menuItem.tip}
-  </span>
-</div>
-
+            {menuItem.tip === "none" ? <div className="h-14"></div> : (
+              <div className="flex items-start">
+                <span className="text-secondary font-bold text-lg mr-2 ">
+                  Tip.
+                </span>
+                <span className="text-lg text-dark3 mb-7 inline-block">
+                  {menuItem.tip}
+                </span>
+              </div>
+            )}
           </div>
 
           {menuItem.temperature === "none" ? null : (

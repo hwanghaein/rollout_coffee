@@ -30,7 +30,7 @@ export const menuItems: MenuItem[] = [
     category: "signature", 
     engName: "Peanut Cover", 
     description: "고소한 땅콩크림이 이불처럼 덮힌 숏 라떼", 
-    tip: "휘낭시에와 함께 먹으면 더욱 맛있어요.", 
+    tip: "크림과 에스프레소를 가볍게 맛본 후 잔을 가볍게 흔들어 드세요.",
     temperature: "ice" 
   },
   { 
@@ -41,7 +41,8 @@ export const menuItems: MenuItem[] = [
     category: "signature", 
     engName: "Lady Grey", 
     description: "블루베리와 블랙커런트의 맛과 향을 느낄 수 있는 달콤한 라떼", 
-    tip: "블루베리와 블랙커런트의 풍미를 더욱 즐기고 싶다면 천천히 음미하며 드셔보세요.", 
+    // tip: "블루베리와 블랙커런트의 풍미를 더욱 즐기고 싶다면 천천히 음미하며 드셔보세요.", 
+    tip: "none",
     temperature: "both" 
   },
   { 
@@ -52,7 +53,8 @@ export const menuItems: MenuItem[] = [
     category: "coffee", 
     engName: "Americano", 
     description: "Flaver. 자스민 + 블랙베리", 
-    tip: "다양한 디저트들과 함께 즐겨보세요.", 
+    // tip: "다양한 디저트들과 함께 즐겨보세요.", 
+    tip: "none",
     temperature: "both" 
   },
   { 
@@ -74,7 +76,7 @@ export const menuItems: MenuItem[] = [
     category: "coffee", 
     engName: "Vanilla Latte", 
     description: "천연 바닐라빈과 유기농 설탕으로 직접 만든 시럽을 사용합니다", 
-    tip: "바닐라 시럽이 음료 전체에 잘 섞이도록 저어서 드시는 걸 추천해요. 한 모금 한 모금 바닐라빈의 깊고 고급스러운 풍미를 만끽해보세요. ", 
+    tip: "바닐라 시럽이 음료 전체에 잘 섞이도록 저어서 드시는 걸 추천해요.", 
     temperature: "both" 
   },
   { 
@@ -85,7 +87,8 @@ export const menuItems: MenuItem[] = [
     category: "drip", 
     engName: "Hand Drip", 
     description: "다양한 핸드드립 종류가 상시 제공되며, 계절이나 재고 상황에 따라 종류가 변동될 수 있습니다. ", 
-    tip: "디저트와 함께 즐겨보세요.", 
+    // tip: "디저트와 함께 즐겨보세요.", 
+    tip: "none",
     temperature: "both" 
   },
   { 
@@ -107,7 +110,7 @@ export const menuItems: MenuItem[] = [
     category: "drink", 
     engName: "Ade", 
     description: "Flaver. 망고 / 청귤 / 한라패션후르츠", 
-    tip: "충분히 섞어서 드시면 상큼한 맛이 얼음과 함께 잘 어우러져 더욱 시원하게 즐기실 수 있어요.", 
+    tip: "충분히 섞어서 드시면 상큼한 맛이 얼음과 함께 잘 어우러져요.", 
     temperature: "ice" 
   },
   { 
@@ -117,8 +120,9 @@ export const menuItems: MenuItem[] = [
     name: "과일 주스 2종", 
     category: "drink", 
     engName: "Fruit Juice", 
-    description: "Flaver. 감귤 / 사과", 
-    tip: "100% 과일의 자연스러운 풍미를 느껴보세요.", 
+    description: "Flaver. 감귤 / 사과, 100% 과일", 
+    // tip: "100% 과일의 자연스러운 풍미를 느껴보세요.", 
+    tip: "none",
     temperature: "ice" 
   },
   { 
@@ -129,7 +133,8 @@ export const menuItems: MenuItem[] = [
     category: "sweetTea", 
     engName: "Sweet Milk Tea", 
     description: "3가지 홍차와 유기농 설탕을 섞어 만든 달콤한 밀크티", 
-    tip: "따뜻하게 즐기면 홍차의 깊은 풍미가 느껴지고, 차가운 버전은 더욱 상쾌하고 달콤한 맛이 강조됩니다. 기호에 맞는 온도로 즐겨보세요.", 
+    // tip: "따뜻하게 즐기면 홍차의 깊은 풍미가 느껴지고, 차가운 버전은 더욱 상쾌하고 달콤한 맛이 강조됩니다. 기호에 맞는 온도로 즐겨보세요.", 
+    tip: "none",
     temperature: "both"
   },
   { 
@@ -140,7 +145,8 @@ export const menuItems: MenuItem[] = [
     category: "sweetTea", 
     engName: "Tangerine Tea", 
     description: "상큼하고 향긋한 청귤차", 
-    tip: "청귤 특유의 상큼한 향과 맛을 천천히 음미하며 여유로운 시간을 즐겨보세요", 
+    // tip: "청귤 특유의 상큼한 향과 맛을 천천히 음미하며 여유로운 시간을 즐겨보세요", 
+    tip: "none",
     temperature: "hot" 
   },
   { 
@@ -151,7 +157,7 @@ export const menuItems: MenuItem[] = [
     category: "sweetTea", 
     engName: "Fruity Earl Grey", 
     description: "달콤한 과일청을 넣어 만든 얼그레이 아이스티", 
-    tip: "과일청과 얼그레이를 골고루 섞어 드시면 풍부한 맛을 느낄 수 있어요.", 
+    tip: "과일청과 얼그레이를 골고루 섞어 드세요.", 
     temperature: "ice"  
   },
   { 
@@ -162,7 +168,8 @@ export const menuItems: MenuItem[] = [
     category: "tea", 
     engName: "Tea", 
     description: "Flaver. 루이보스 / 카모마일 / 호박팥차 / 블랙커런트", 
-    tip: "따뜻한 차를 천천히 음미하며 하루의 피로를 풀어보세요. 각 차의 특유의 풍미를 즐겨보는 것도 추천합니다.", 
+    // tip: "따뜻한 차를 천천히 음미하며 하루의 피로를 풀어보세요. 각 차의 특유의 풍미를 즐겨보는 것도 추천합니다.", 
+    tip: "none",
     temperature: "both" 
   },
   { 
@@ -173,7 +180,8 @@ export const menuItems: MenuItem[] = [
     category: "dessert", 
     engName: "Financier", 
     description: "Flaver. 츄로스 / 모카번 / 솔티드 아몬드 / 솔티드 카라멜 / 호두 크로칸 / 스위트 카카오 / 소보로 / 레몬", 
-    tip: "커피와 함께 즐기면 더욱 잘 어울려요.", 
+    // tip: "커피와 함께 즐기면 더욱 잘 어울려요.", 
+    tip: "none",
     temperature: "none" 
   },
   { 
@@ -184,7 +192,8 @@ export const menuItems: MenuItem[] = [
     category: "dessert", 
     engName: "Plain Rare Cheese Cake", 
     description: "끼리크림 치즈를 사용해서 만든 부드러운 치즈 케이크", 
-    tip: "부드러운 식감과 풍부한 치즈의 맛을 천천히 음미해 보세요. 커피나 티와 함께하면 더 잘 어울립니다.", 
+    // tip: "부드러운 식감과 풍부한 치즈의 맛을 천천히 음미해 보세요. 커피나 티와 함께하면 더 잘 어울립니다.", 
+    tip: "none",
     temperature: "none" 
   },
   { 
@@ -195,7 +204,8 @@ export const menuItems: MenuItem[] = [
     category: "dessert", 
     engName: "Chocolate Rare Cheese Cake", 
     description: "끼리크림 치즈를 사용해서 만든 부드러운 초코 치즈 케이크", 
-    tip: "부드러운 식감과 풍부한 치즈의 맛을 천천히 음미해 보세요. 커피나 티와 함께하면 더 잘 어울립니다.", 
+    // tip: "부드러운 식감과 풍부한 치즈의 맛을 천천히 음미해 보세요. 커피나 티와 함께하면 더 잘 어울립니다.", 
+    tip: "none",
     temperature: "none" 
   },
 ];
