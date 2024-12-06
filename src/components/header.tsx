@@ -68,10 +68,10 @@ export default function Header() {
       >
         {/* 메뉴 닫기 버튼 */}
         <button
-          className="absolute top-4 right-4 text-white"
+          className="absolute top-6 right-5 text-white"
           onClick={closeMenu}
         >
-           <FaTimes className="text-3xl text-gray1" />
+           <FaTimes className="text-4xl text-gray1" />
         </button>
         <ul className="text-13 text-gray1 flex flex-col items-start text-left text-base">
           <li className="py-10 pl-4 w-full text-left border-gray3 bg-brown2"></li>
