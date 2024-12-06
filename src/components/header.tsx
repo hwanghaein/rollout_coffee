@@ -3,17 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa"; 
 
 export default function Header() {
-  // 햄버거 메뉴의 토글 상태를 관리하는 상태 변수
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // 햄버거 메뉴의 토글 상태를 관리하는 상태 변수
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false); 
 
   return (
     <div>
-      <header className="sticky top-0 w-full h-20 bg-primary flex justify-between items-center px-3 md:px-5 max-w-full mx-auto gap-5">
+      <header className="fixed z-50 top-0 w-full h-20 bg-primary flex justify-between items-center px-3 md:px-5 max-w-full mx-auto gap-5">
         <div className="w-full max-w-[1100px] mx-auto flex justify-between items-center">
           {/* 로고 아이콘 */}
           <Link href={"/"} className="flex gap-2 items-center flex-shrink-0">
@@ -55,13 +55,7 @@ export default function Header() {
 
           {/* 햄버거 버튼 - 모바일과 태블릿에서만 보이도록 설정 */}
           <button className="md:hidden p-2" onClick={toggleMenu}>
-            <Image
-              src="/images/icon/hamburger_icon.png"
-              alt="메뉴 열기 버튼"
-              width={30}
-              height={30}
-              className="object-contain"
-            />
+            <FaBars className="text-3xl text-gray1" />
           </button>
         </div>
       </header>
@@ -77,13 +71,7 @@ export default function Header() {
           className="absolute top-4 right-4 text-white"
           onClick={closeMenu}
         >
-          <Image
-            src="/images/icon/close_icon.png"
-            alt="메뉴 닫기 버튼"
-            width={30}
-            height={30}
-            className="object-contain"
-          />
+           <FaTimes className="text-3xl text-gray1" />
         </button>
         <ul className="text-13 text-gray1 flex flex-col items-start text-left text-base">
           <li className="py-10 pl-4 w-full text-left border-gray3 bg-brown2"></li>

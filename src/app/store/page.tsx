@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 // import KakaoMap from "@/components/kakao-map"; 
 import Image from "next/image";
+import {FaLink } from "react-icons/fa"; 
 
 export default function Page() {
   // const latitude = 33.450701; 
@@ -49,7 +50,7 @@ export default function Page() {
       <div className="flex flex-col gap-5 pb-7 mb-7 border-b-[1px] ">
         <span className="text-2xl text-secondary">Telephone</span>
         <a href="tel:0507-1392-5605" className="text-lg text-dark4 hover:text-blue-500">
-          0507-1392-5605
+       <div className="flex items-center"> <FaLink className="text-m mr-1 text-gray-600" /> 0507-1392-5605 </div>
         </a>
       </div>
 
@@ -80,8 +81,8 @@ export default function Page() {
           rel="noopener noreferrer"
           className="text-lg text-dark4 hover:text-blue-500"
         >
-          @rollout_coffee
-        </a>
+         <div className="flex items-center"><FaLink className="text-m mr-1 text-gray-600" /> @rollout_coffee </div>
+        </a> 
       </div>
 
       {/* <div className="flex flex-col gap-5 pb-7 mb-7 border-b-[1px] ">
