@@ -6,12 +6,16 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Thumbs } from "swiper/modules";
 import Image from "next/image";
-import { menuItems } from "../../../../mock/menu";
 import { useState, useEffect } from "react";
 import { Swiper as SwiperType } from "swiper";
+import { getDocs, collection } from "firebase/firestore";
+import fireStore from "../../../../../firebase/firestore";
+import { MenuItem } from "../../../../types/MenuItem";
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const [id, setId] = useState<string | null>(null);
+  const [menuItem, setMenuItem] = useState<MenuItem | null>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   useEffect(() => {
     async function fetchParams() {
@@ -21,9 +25,25 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
     fetchParams();
   }, [params]);
 
-  const menuItem = id ? menuItems.find((item) => item.id === id) : null;
+  useEffect(() => {
+    if (!id) return;
 
-  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
+    async function fetchMenuItem() {
+      try {
+        const querySnapshot = await getDocs(collection(fireStore, "menuItems"));
+        const items: MenuItem[] = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data() as MenuItem);
+        });
+        const foundItem = items.find((item) => item.id === id);
+        setMenuItem(foundItem || null);
+      } catch (error) {
+        console.error("Error fetching menu item:", error);
+      }
+    }
+
+    fetchMenuItem();
+  }, [id]);
 
   if (!menuItem) {
     return <div>Menu item not found</div>;
@@ -112,10 +132,12 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
           <div className="flex flex-col border-b-[1px] border-solid border-gray4 mb-7">
             <div className="flex items-center mb-7">
               <span className="text-lg text-dark3 font-bold">
-              • {menuItem.description}
+                • {menuItem.description}
               </span>
             </div>
-            {menuItem.tip === "none" ? <div className="h-14"></div> : (
+            {menuItem.tip === "none" ? (
+              <div className="h-14"></div>
+            ) : (
               <div className="flex items-start">
                 <span className="text-secondary font-bold text-lg mr-2 ">
                   Tip.
