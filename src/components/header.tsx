@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <div>
-      <header className="fixed z-50 top-0 w-full h-20 bg-primary flex justify-between items-center px-3 md:px-5 max-w-full mx-auto gap-5">
+      <header className="z-50 top-0 w-full h-20 bg-primary flex justify-between items-center px-3 md:px-5 max-w-full mx-auto gap-5">
         <div className="w-full max-w-[1100px] mx-auto flex justify-between items-center">
           {/* 로고 아이콘 */}
           <Link href={"/"} className="flex gap-2 items-center flex-shrink-0">
