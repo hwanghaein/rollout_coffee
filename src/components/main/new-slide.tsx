@@ -4,7 +4,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { useRouter } from "next/navigation";
 import { slides } from "@/mock/new-slide";
 
@@ -16,7 +16,7 @@ export default function NewSlide() {
   };
 
   return (
-    <div className="w-full lg:pb-10 md:pb-5 pb-4" >
+    <div className="w-full lg:pb-10 md:pb-5 pb-4">
       <section className="w-full overflow-hidden">
         <Swiper
           style={
@@ -35,9 +35,13 @@ export default function NewSlide() {
           navigation={true}
           pagination={{ clickable: true }}
           spaceBetween={4}
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]} // Autoplay 모듈 추가
           className="bg-gray5"
           speed={600}
+          autoplay={{
+            delay: 3000, // 슬라이드 전환 간격 (3초)
+            disableOnInteraction: false, // 사용자가 슬라이드를 클릭해도 자동 슬라이드가 계속됨
+          }}
           breakpoints={{
             320: {
               slidesPerView: 2,

@@ -6,7 +6,7 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function NewFinancier() {
   const router = useRouter(); 
-  const { ref, isVisible } = useIntersectionObserver(0.5); 
+  const { ref, isVisible } = useIntersectionObserver(0.3); 
 
   const handleButtonClick = () => {
     router.push("/menu/detail/15");

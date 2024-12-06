@@ -76,7 +76,7 @@ export default function Page() {
   });
 
   return (
-    <div className="min-h-screen flex flex-col px-4 md:w-full max-w-[1100px] mx-auto pt-7 pb-20">
+    <div className="flex flex-col px-4 md:w-full max-w-[1100px] mx-auto pt-7 pb-20">
       <span className="text-dark2 text-3xl mb-10">MENU</span>
       <div className="p-5 flex flex-col border-[1px] border-solid border-gray4 rounded-md mb-10">
         <div className="flex pb-4 border-b-[1px] border-gray-4 justify-between items-center">

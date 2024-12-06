@@ -7,7 +7,7 @@ import { useIntersectionObserver } from "./../../hooks/useIntersectionObserver";
 export default function MonthBarista() {
   const router = useRouter(); 
 
-  const { ref: sectionRef, isVisible } = useIntersectionObserver(0.5); 
+  const { ref: sectionRef, isVisible } = useIntersectionObserver(0.3); 
 
   const handleButtonClick = () => {
     router.push("/menu/detail/3");

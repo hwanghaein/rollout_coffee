@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function DippingFinancier() {
   const router = useRouter(); 
-  const { ref: sectionRef, isVisible } = useIntersectionObserver(0.5); 
+  const { ref: sectionRef, isVisible } = useIntersectionObserver(0.3); 
 
   const handleButtonClick = () => {
     router.push("/menu/detail/2");
