@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect } from "react";
 // import KakaoMap from "@/components/kakao-map"; 
 import Image from "next/image";
@@ -10,18 +8,18 @@ export default function Page() {
   // const longitude = 126.570667; 
   // const placeName = "롤아웃 커피"; 
 
-  useEffect(() => {
-    if (!window.kakao) {
-      const script = document.createElement("script");
-      script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=292bc6569adad050a9b9617ccb585e68&libraries=services,clusterer&autoload=true`;
-      script.async = true;
-      document.head.appendChild(script);
+  // useEffect(() => {
+  //   if (!window.kakao) {
+  //     const script = document.createElement("script");
+  //     script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=292bc6569adad050a9b9617ccb585e68&libraries=services,clusterer&autoload=true`;
+  //     script.async = true;
+  //     document.head.appendChild(script);
 
-      script.onload = () => {
-        console.log("카카오맵 API 로드 완료");
-      };
-    }
-  }, []); 
+  //     script.onload = () => {
+  //       console.log("카카오맵 API 로드 완료");
+  //     };
+  //   }
+  // }, []); 
 
   return (
     <div className="px-4 md:w-full max-w-[1100px] mx-auto flex flex-col pt-7 pb-20">
