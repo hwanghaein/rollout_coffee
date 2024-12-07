@@ -2,8 +2,7 @@ import { getDocs, collection } from "firebase/firestore";
 import fireStore from "../../firebase/firestore";
 import { MenuItem } from "../types/menu-item";
 
-// firebase에서 메뉴 항목 가져오는 함수
-const fetchMenuItems = async (): Promise<MenuItem[]> => {
+export async function fetchMenuItems(): Promise<MenuItem[]> {
   try {
     const querySnapshot = await getDocs(collection(fireStore, "menuItems"));
     const items: MenuItem[] = [];
