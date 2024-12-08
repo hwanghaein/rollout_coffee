@@ -28,7 +28,7 @@ export default function MenuDetailClient({ menuItem }: { menuItem: MenuItem }) {
       <div className="flex flex-col md:flex-row gap-10">
         <div className="md:order-1 order-2">
           <div className="relative max-w-[450px] overflow-hidden bg-dark2">
-            {menuItem.images.length > 1 ? (
+            {Array.isArray(menuItem.images) && menuItem.images.length > 1 ? (
               <Swiper
                 style={
                   {
@@ -57,16 +57,18 @@ export default function MenuDetailClient({ menuItem }: { menuItem: MenuItem }) {
                 ))}
               </Swiper>
             ) : (
-              <Image
-                src={menuItem.images[0]}
-                alt={menuItem.alt || "Menu Item Image"}
-                width={450}
-                height={470}
-                className="object-cover"
-              />
+              Array.isArray(menuItem.images) && menuItem.images.length > 0 && (
+                <Image
+                  src={menuItem.images[0]}
+                  alt={menuItem.alt || "Menu Item Image"}
+                  width={450}
+                  height={470}
+                  className="object-cover"
+                />
+              )
             )}
 
-            {menuItem.images.length > 1 && (
+            {Array.isArray(menuItem.images) && menuItem.images.length > 1 && (
               <Swiper
                 onSwiper={setThumbsSwiper}
                 spaceBetween={10}
