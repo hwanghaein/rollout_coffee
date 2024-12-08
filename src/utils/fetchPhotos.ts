@@ -1,6 +1,13 @@
 import { getDocs, collection } from "firebase/firestore";
 import fireStore from "../../firebase/firestore";
-import { Photo } from "../types/photo";
+
+interface Photo {
+  id: string;
+  image: string;
+  alt: string;
+  date: string;
+}
+
 
 export async function fetchPhotos(): Promise<Photo[]> {
   try {

@@ -3,11 +3,17 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Photo } from "../../../../types/photo";
+
+interface Photo {
+  id: string;
+  image: string;
+  alt: string;
+  date: string;
+}
 
 interface PhotoGalleryClientProps {
   photos: Photo[];
-  currentPhotoId: string; 
+  currentPhotoId: string;
 }
 
 export default function PhotoDetailOthersClient({
@@ -22,8 +28,10 @@ export default function PhotoDetailOthersClient({
   };
 
   useEffect(() => {
-    const filteredPhotos = photos.filter((photo) => photo.id !== currentPhotoId);
-    setOtherPhotos(filteredPhotos.slice(0, 6)); 
+    const filteredPhotos = photos.filter(
+      (photo) => photo.id !== currentPhotoId
+    );
+    setOtherPhotos(filteredPhotos.slice(0, 6));
   }, [photos, currentPhotoId]);
 
   return (

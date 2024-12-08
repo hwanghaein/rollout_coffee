@@ -1,6 +1,13 @@
 import { fetchPhotos } from "../../utils/fetchPhotos";
-import { Photo } from "./../../types/photo";
 import PhotoGalleryClient from "./photo-gallery-client";
+
+interface Photo {
+  id: string;
+  image: string;
+  alt: string;
+  date: string;
+}
+
 
 export default async function Page() {
   const photos: Photo[] = await fetchPhotos();
