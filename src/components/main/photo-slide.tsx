@@ -1,27 +1,50 @@
-
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/autoplay"; 
+import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { useRouter } from "next/navigation";
 
 export default function PhotoSlide() {
-  const router = useRouter(); 
+  const router = useRouter();
 
   const slides = [
-    { src: "/images/main/photo_slide1.png", alt: "슬라이드1" },
-    { src: "/images/main/photo_slide2.png", alt: "슬라이드2" },
-    { src: "/images/main/photo_slide3.png", alt: "슬라이드3" },
-    { src: "/images/main/photo_slide4.png", alt: "슬라이드4" },
-    { src: "/images/main/photo_slide5.png", alt: "슬라이드5" },
-    { src: "/images/main/photo_slide6.png", alt: "슬라이드6" },
+    {
+      src: "/images/main/photo_slide1.png",
+      alt: "아이스크림",
+      link: "photo-gallery/detail/6",
+    },
+    {
+      src: "/images/main/photo_slide2.png",
+      alt: "골목길",
+      link: "photo-gallery/detail/3",
+    },
+    {
+      src: "/images/main/photo_slide3.png",
+      alt: "남녀",
+      link: "photo-gallery/detail/4",
+    },
+    {
+      src: "/images/main/photo_slide4.png",
+      alt: "핑크전화기",
+      link: "photo-gallery/detail/2",
+    },
+    {
+      src: "/images/main/photo_slide5.png",
+      alt: "비행기",
+      link: "photo-gallery/detail/8",
+    },
+    {
+      src: "/images/main/photo_slide6.png",
+      alt: "가족",
+      link: "photo-gallery/detail/7",
+    },
   ];
 
-  const handleClick = () => {
-    router.push("/photo-gallery");
+  const handleClick = (link: string) => {
+    router.push(link);
   };
 
   return (
@@ -47,10 +70,10 @@ export default function PhotoSlide() {
           modules={[Navigation, Pagination, Autoplay]}
           className="bg-dark2"
           autoplay={{
-            delay: 2000, 
-            disableOnInteraction: false, 
+            delay: 2000,
+            disableOnInteraction: false,
           }}
-          speed={600} 
+          speed={600}
           breakpoints={{
             320: {
               slidesPerView: 2,
@@ -71,7 +94,7 @@ export default function PhotoSlide() {
                   alt={slide.alt}
                   width={600}
                   height={600}
-                  onClick={handleClick}
+                  onClick={() => handleClick(slide.link)}
                   className="cursor-pointer"
                 />
               </div>
