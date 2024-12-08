@@ -1,7 +1,13 @@
 "use client";
 
-import { Photo } from "@/types/photo";
 import Image from "next/image";
+
+interface Photo {
+  id: string;
+  image: string;
+  alt: string;
+  date: string;
+}
 
 export default function PhotoDetailClient({
   photo,
