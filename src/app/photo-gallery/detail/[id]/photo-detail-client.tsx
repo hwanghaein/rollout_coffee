@@ -1,7 +1,7 @@
 "use client";
 
+import { Photo } from "@/types/photo";
 import Image from "next/image";
-import { Photo } from "../../../../types/photo";
 
 export default function PhotoDetailClient({
   photo,
