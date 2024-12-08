@@ -13,10 +13,17 @@ import { MenuItem } from "../../../../types/menu-item";
 export default function MenuDetailClient({ menuItem }: { menuItem: MenuItem }) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
+  const formatCategory = (category: string) => {
+    if (category === "sweetTea") {
+      return "SWEET TEA";
+    }
+    return category.toUpperCase();
+  };
+
   return (
     <>
       <span className="text-dark2 text-3xl mb-10">
-        {menuItem.category.toUpperCase()}
+        {formatCategory(menuItem.category)}
       </span>
       <div className="flex flex-col md:flex-row gap-10">
         <div className="md:order-1 order-2">
