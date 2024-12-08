@@ -15,14 +15,14 @@ export default async function Page(props: { params: tParams }) {
   }
 
   return (
-    <div className="md:w-full max-w-[1100px] mx-auto flex gap-10 justify-center pt-12">
+    <div className="md:w-full max-w-[1100px] mx-auto flex gap-10 justify-center my-8">
       <div > 
         <PhotoDetailClient photo={photo} />
       </div>
 
-      <div className="flex flex-col justify-between"> 
+      <div className="flex flex-col "> 
         <div className="text-left text-xl text-dark2 pb-2 border-b-2 border-dark3">Other Photos</div>
-        <PhotoDetailOthersClient photos={photos} />
+        <PhotoDetailOthersClient photos={photos} currentPhotoId={id} />
       </div>
     </div>
   );

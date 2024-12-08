@@ -11,18 +11,15 @@ export default function PhotoDetailClient({
   return (
     <div className="flex flex-col items-center"> 
       {/* 폴라로이드 */}
-      <div className="bg-white border  border-gray-300 w-[300px] pb-8 pt-4 px-2 text-center shadow-md">
-        {/* 사진 */}
+      <div className="bg-white border  border-gray-300 w-[500px] pb-10 pt-6 px-5 text-center shadow-md">
         <Image
           src={photo.image}
           alt={photo.alt}
-          width={300}
-          height={300}
+          width={458}
+          height={478}
           className="object-cover"
         />
-
-        {/* 날짜 (캡션) */}
-        <div className="mt-4 text-dark2 text-m font-medium">
+        <div className="pt-6 text-dark2 text-lg">
           {photo.date}
         </div>
       </div>
