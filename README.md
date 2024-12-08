@@ -69,7 +69,11 @@
   
 <br>
 
-// 영상
+https://github.com/user-attachments/assets/5bc698fb-9e25-4b06-a3ff-c939e46a7d19
+
+<br>
+
+https://github.com/user-attachments/assets/f6dcf3d7-8275-4b06-9a9f-18bddd24bbdf
 
 <br>
 
@@ -82,8 +86,12 @@
 - 메뉴를 hover할 시 확대 효과를 적용하여 사용자가 메뉴 상세 페이지로 자연스럽게 이동하도록 유도.
 
 <br>
- 
-// 영상
+
+https://github.com/user-attachments/assets/c7c88b68-069b-48c3-8367-f216d342c7c3
+
+<br>
+
+https://github.com/user-attachments/assets/68912ce1-f152-440f-81d9-62230587cf44
 
 <br>
 
@@ -98,8 +106,10 @@
 - 세부 정보를 카테고리별로 구분하여 직관적인 UI를 제공, 사용자가 쉽게 카테고리를 인지할 수 있도록 설계.
 
 <br>
- 
-// 영상
+
+
+https://github.com/user-attachments/assets/52af6a0a-5cc4-4b19-ac1b-b70da9c0994b
+
 
 <br>
 
@@ -110,8 +120,9 @@
 - 전화번호와 인스타그램 링크를 추가하여 고객이 쉽게 연락하거나 소셜 미디어를 통해 상호작용할 수 있도록 유도.
 
 <br>
- 
-// 영상
+
+https://github.com/user-attachments/assets/c2097a27-2ebb-463d-8691-dfa5ac8af02a
+
 
 <br>
 
@@ -123,7 +134,9 @@
 
 <br>
  
-// 영상
+
+https://github.com/user-attachments/assets/22e049fc-3aaa-4845-b15e-a50998bdcb5d
+
 
 <br>
 
@@ -135,7 +148,11 @@
 
 <br>
  
-// 영상
+https://github.com/user-attachments/assets/405576fc-f101-4bcf-a03e-13ecf95caab4
+
+<br>
+
+https://github.com/user-attachments/assets/443b638f-7e9e-4de7-8809-6314a16c3174
 
 <br>
 
