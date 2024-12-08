@@ -1,16 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { Photo } from "../../types/photo";
 import { useRouter } from "next/navigation";
 
+interface Photo {
+  id: string;
+  image: string;
+  alt: string;
+  date: string;
+}
 interface PhotoGalleryClientProps {
   photos: Photo[];
 }
-
-
-
-
 
 export default function PhotoGalleryClient({
   photos,
