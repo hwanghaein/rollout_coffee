@@ -52,6 +52,8 @@ export default function MenuDetailClient({ menuItem }: { menuItem: MenuItem }) {
                       width={450}
                       height={470}
                       className="object-cover"
+                      priority
+                       loading="eager"
                     />
                   </SwiperSlide>
                 ))}
@@ -64,6 +66,8 @@ export default function MenuDetailClient({ menuItem }: { menuItem: MenuItem }) {
                   width={450}
                   height={470}
                   className="object-cover"
+                  priority
+                   loading="eager"
                 />
               )
             )}
@@ -86,6 +90,8 @@ export default function MenuDetailClient({ menuItem }: { menuItem: MenuItem }) {
                       width={150}
                       height={60}
                       className="object-cover cursor-pointer"
+                      priority
+                       loading="eager"
                     />
                   </SwiperSlide>
                 ))}

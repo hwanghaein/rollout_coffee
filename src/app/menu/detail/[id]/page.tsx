@@ -1,14 +1,12 @@
 import MenuDetailClient from "./menu-detail-client";
-import fetchMenuItems from "@/utils/fetchMenuItems";
-
+import fetchMenuItemById from "@/utils/fetchMenuItemById";
 
 type tParams = Promise<{ id: string }>;
 
 export default async function Page(props: { params: tParams }) {
   const { id } = await props.params;
 
-  const menuItems = await fetchMenuItems();
-  const menuItem = menuItems.find((item) => item.id === id);
+  const menuItem = await fetchMenuItemById(id);
 
   if (!menuItem) {
     return <div>Menu item not found</div>;
