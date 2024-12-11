@@ -1,56 +1,84 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { doc, getDoc } from "firebase/firestore";
-import fireStore from "../../../firebase/firestore";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
+import { storage } from "../../../firebase/firebasedb"; // Storage 가져오기
+import { doc, updateDoc, arrayUnion } from "firebase/firestore"; // Firestore 가져오기
+import fireStore from "../../../firebase/firestore"; // Firestore 인스턴스 가져오기
 import Image from "next/image";
 
+type ImageData = {
+  name: string;
+  src: string;
+};
+
 export default function Page() {
-  // 데이터 상태 변수
-  const [imageData, setImageData] = useState<string | null>(null);
+  const [imageData, setImageData] = useState<ImageData[]>([]);
+  const [fileName, setFileName] = useState(""); // 사용자 입력 파일 이름
+  const [message, setMessage] = useState(""); // 사용자에게 피드백 메시지
 
   useEffect(() => {
-    // Firestore 데이터 가져오기 함수
-    const fetchData = async () => {
+    const fetchImageData = async () => {
+      const storageRef = ref(storage, "menu-items-img"); // Firebase Storage의 폴더 경로 설정
       try {
-        const userDocRef = doc(fireStore, "menuItems", "1");
-        const data = await getDoc(userDocRef);
+        const result = await listAll(storageRef); // 폴더 내 파일 목록 가져오기
+        const dataPromises = result.items.map(async (itemRef) => {
+          const url = await getDownloadURL(itemRef); // 다운로드 URL 가져오기
+          return { name: itemRef.name, src: url }; // 객체로 반환
+        });
 
-        if (data.exists()) {
-          console.log(data.data());
-          const docData = data.data();
-          // 이미지 URL 저장
-          if (docData.images && Array.isArray(docData.images)) {
-            setImageData(docData.images[0]);
-          } else {
-            console.log("이미지 데이터가 존재하지 않습니다.");
-          }
-        } else {
-          console.log("문서가 존재하지 않습니다.");
-        }
+        const data = await Promise.all(dataPromises); // 모든 비동기 처리 완료
+        setImageData(data); // 상태에 저장
       } catch (error) {
-        console.error("데이터 불러오기 실패:", error);
+        console.error("Failed to fetch image data:", error);
       }
     };
 
-    // 함수 호출
-    fetchData();
-  }, []); // 빈 배열을 전달해 컴포넌트 첫 렌더링 시 한 번만 실행
+    fetchImageData();
+  }, []);
+
+  // Firestore에 이미지 추가 (URL만 추가)
+  const addToFirestore = async (imageName: string) => {
+    try {
+      const image = imageData.find((img) => img.name === imageName); // 이미지 이름으로 해당 이미지 찾기
+      if (!image) {
+        setMessage("Image not found! Please check the file name.");
+        return;
+      }
+
+      const docRef = doc(fireStore, "menuItems", "9"); // 문서 경로 설정
+
+      // Firestore의 images 배열에 이미지 URL만 추가
+      await updateDoc(docRef, {
+        images: arrayUnion(image.src), // 이미지 URL을 배열에 추가
+      });
+
+      setMessage("Image added to Firestore successfully!");
+      console.log("Image added to Firestore:", image.src);
+    } catch (error) {
+      setMessage("Failed to add image to Firestore.");
+      console.error("Failed to add image to Firestore:", error);
+    }
+  };
+
+  // 파일 이름 입력 핸들러
+  const handleFileNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFileName(e.target.value);
+  };
 
   return (
     <div>
-      {/* 이미지 렌더링 */}
-      {imageData ? (
-        <Image
-          src={imageData}
-          alt="비행기"
-          width={1100}
-          height={300}
-          className="object-contain mb-12"
-        />
-      ) : (
-        <p>이미지를 불러오는 중입니다...</p>
-      )}
+      <h1>Enter Image File Name</h1>
+      <input
+        type="text"
+        value={fileName}
+        onChange={handleFileNameChange}
+        placeholder="Enter image file name"
+      />
+      <button onClick={() => addToFirestore(fileName)} style={{ marginTop: "20px" }}>
+        Add Image to Firestore
+      </button>
+      {message && <p>{message}</p>}
     </div>
   );
 }
