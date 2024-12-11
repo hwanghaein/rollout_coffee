@@ -20,7 +20,7 @@ export default async function Page(props: { params: tParams }) {
         <PhotoDetailClient photo={photo} />
       </div>
 
-      <div className="flex flex-col "> 
+      <div className="flex flex-col justify-center "> 
         <div className="text-left text-xl text-dark2 pb-2 border-b-2 border-dark3">Other Photos</div>
         <PhotoDetailOthersClient photos={photos} currentPhotoId={id} />
       </div>
