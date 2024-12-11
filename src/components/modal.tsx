@@ -3,7 +3,7 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
-import { FaTimes } from "react-icons/fa";
+import { FiX } from "react-icons/fi";
 
 export default function Modal({ children }: { children: ReactNode }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -28,22 +28,22 @@ export default function Modal({ children }: { children: ReactNode }) {
 
   return createPortal(
     <dialog
-      className={`border-none bg-white rounded-xl backdrop:bg-black/70 outline-none transition-all duration-300 ${
+      className={`border-none bg-white backdrop:bg-black/70 outline-none transition-all duration-300 w-[930px] md:px-7 px-4 pt-6 md:pt-0 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`} 
-      style={{ width: "930px", height: "660px", overflow: "hidden" }}
+
+      ref={dialogRef}
       onClick={(e) => {
         if ((e.target as HTMLElement).nodeName === "DIALOG") {
           handleClose();
         }
       }}
-      ref={dialogRef}
     >
       <button 
         onClick={handleClose} 
         className="absolute top-4 right-4 text-xl font-bold"
       >
-        <FaTimes className="text-4xl text-gray1" />
+        <FiX className="md:text-3xl  text-[25px] text-dark4" />
       </button>
       {children}
     </dialog>,
